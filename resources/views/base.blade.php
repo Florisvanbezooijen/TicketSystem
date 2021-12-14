@@ -29,7 +29,10 @@
                             <a class="nav-link" href="{{route('testroute')}}">testroute</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('testroute2')}}">testroute2</a>
+                            <a class="nav-link" href="{{route('events')}}">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('events.index')}}">Tabel</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Disabled</a>

@@ -58,6 +58,22 @@ class TicketController extends Controller
         $order->status = 'paid';
         $order->order_date = Date('Y-m-d h:m:s');
         $order->save();
+
+        $amountOfTickets = $request->amount;
+        for ($i = 0; $i < $amountOfTickets; $i++) {
+            $ticket = new Ticket();
+            $ticket->status = 0;
+            $ticket->price_per_ticket = $event->ticket_price;
+            $ticket->save();
+
+            $orderTicket = new OrderTicket();
+            $orderTicket->order_id = $order->id;
+            $orderTicket->ticket_id = $ticket->id;
+            $orderTicket->save();
+
+        }
+        return redirect()->route("events")->with('success', 'Tickets besteld!');
+
     }
 
     /**
